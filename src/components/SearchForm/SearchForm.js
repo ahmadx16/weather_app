@@ -4,6 +4,7 @@ import { addCityWeatherData } from "../../actions"
 
 import getWeatherData from "../../services/getWeatherData"
 
+
 const SearchForm = ({ addCityWeatherData }) => {
 
     const [searchText, setSearchText] = useState("")
