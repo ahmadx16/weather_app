@@ -13,7 +13,10 @@ const SearchForm = ({ addCityWeatherData }) => {
     const handleSearchFormSubmit = async (e) => {
         e.preventDefault();
         const weatherData = await getWeatherData(searchText)
-        addCityWeatherData(weatherData.data.list[0].main)
+        addCityWeatherData({
+            name: weatherData.data.city.name,
+            weather: weatherData.data.list
+        })
     }
 
     return (
@@ -35,4 +38,4 @@ const mapSDispatchToProps = {
     addCityWeatherData
 }
 
-export default connect(null,mapSDispatchToProps)(SearchForm)
+export default connect(null, mapSDispatchToProps)(SearchForm)

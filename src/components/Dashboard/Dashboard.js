@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { addCityWeatherData } from "../../actions"
+import { Weather } from "../Weather/Weather"
 
 const Dashboard = ({ weatherDataState }) => {
 
-  const weatherDataMap = weatherDataState.map((weatherData,counter)=>{
-    return(
-      <div key={counter}>{weatherData.temp}</div>
+  const weatherDataMap = weatherDataState.map((weatherData, counter) => {
+    return (
+      <Weather key={counter} weatherData={weatherData} />
     )
   })
 
   return (
     <div>
-      Dashboard
-      {weatherDataMap}
+    {weatherDataMap}
     </div>
   );
 }
