@@ -11,11 +11,11 @@ export const WeatherChart = ({data}) => {
   const lineChart = (
     <div
       style={{
-        width: '500px',
-        height: '300px',
+        width: '550px',
+        height: '400px',
       }}
     >
-      <Chart data={data} axes={axes} />
+      <Chart data={data} axes={axes}  />
     </div>
   )
 
