@@ -13,6 +13,10 @@ const SearchForm = ({ addCityWeatherData }) => {
     const handleSearchFormSubmit = async (e) => {
         e.preventDefault();
         const weatherData = await getWeatherData(searchText)
+        if(weatherData.error){
+            alert(weatherData.error)
+            return;
+        }
         addCityWeatherData({
             name: weatherData.data.city.name,
             weather: weatherData.data.list
@@ -22,8 +26,9 @@ const SearchForm = ({ addCityWeatherData }) => {
     return (
         <form className="form-inline" onSubmit={handleSearchFormSubmit}>
             <input className={`form-control`}
+                style={{width:"20em"}}
                 type="search"
-                placeholder="Search"
+                placeholder="Search City, State or Country"
                 onChange={handleOnSearchTextChange}
                 value={searchText}
             />

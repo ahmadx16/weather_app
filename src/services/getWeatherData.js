@@ -14,6 +14,11 @@ const getWeatherData = async (searchText) => {
                 error: "Network Error: Cannot connect to Open weather API"
             }
         }
+        if (err.response.status===404){
+            return {
+                error: err.response.data.message
+            }
+        }
         return {
             error: "An Error occured, Please contact support"
         }
