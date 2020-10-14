@@ -4,7 +4,7 @@ import { Chart } from 'react-charts'
 export const WeatherChart = ({data}) => {
   
   const axes = [
-    { primary: true, type: 'linear', position: 'bottom' },
+    { primary: true, type: 'time', position: 'bottom' },
     { type: 'linear', position: 'left' }
   ]
 
