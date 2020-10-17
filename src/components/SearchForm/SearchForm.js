@@ -19,8 +19,8 @@ const SearchForm = ({ addCityWeatherData }) => {
             return;
         }
         addCityWeatherData({
-            name: weatherData.data.city.name,
-            weather: weatherData.data.list
+            cityName: weatherData.cityName,
+            weather: weatherData.weather
         })
     }
 
@@ -40,8 +40,8 @@ const SearchForm = ({ addCityWeatherData }) => {
     )
 }
 
-const mapSDispatchToProps = {
+const mapDispatchToProps = {
     addCityWeatherData
 }
 
-export default connect(null, mapSDispatchToProps)(SearchForm)
+export default connect(null, mapDispatchToProps)(SearchForm)

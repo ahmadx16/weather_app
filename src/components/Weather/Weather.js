@@ -9,7 +9,7 @@ export const Weather = ({ weatherData }) => {
       <div className="row">
         <div className="col">
           <div className="jumbotron text-center">
-            <h1>{weatherData.name}</h1>
+            <h1>{weatherData.cityName}</h1>
           </div>
         </div>
       </div>

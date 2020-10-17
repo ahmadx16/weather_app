@@ -1,28 +1,33 @@
 import axios from 'axios';
+import { handleErrors } from '../utils';
 
 const getWeatherData = async (searchText) => {
 
     try {
         const weatherResponse = await axios.get(
             `https://api.openweathermap.org/data/2.5/forecast?q=${searchText}&appid=07ed9cb59ef7455095be8f8c75a3a1a2`);
-        return weatherResponse
+        
+        let processedWeatherResponse = processWeatherResponse(weatherResponse)
+        return processedWeatherResponse
 
     } catch (err) {
-        // No response indicating a network error
-        if (!err.response) {
-            return {
-                error: "Network Error: Cannot connect to Open weather API"
-            }
-        }
-        if (err.response.status===404){
-            return {
-                error: err.response.data.message
-            }
-        }
-        return {
-            error: "An Error occured, Please contact support"
-        }
+        return handleErrors(err)
     }
 }
 
+const processWeatherResponse = (weatherResponse) =>{
+    let cityName = weatherResponse.data.city.name
+    let weather = weatherResponse.data.list.map((weather)=>{
+        return {
+            dt_txt: weather.dt_txt,
+            temp: weather.main.temp,
+            pressure: weather.main.pressure,
+            humidity: weather.main.humidity,
+        }
+    })
+    return {
+        cityName,
+        weather
+    }
+}
 export default getWeatherData;
