@@ -11,7 +11,7 @@ Upon searching the new weather of the city/state/country the previous data is pu
 
 It has a responsive interface!
 
-![Weather App](readme_files/weather_app.png)
+![Weather App](readme_files/weather_app_demo.gif)
 
 ## Instructions
 
